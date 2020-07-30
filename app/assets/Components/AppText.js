@@ -14,8 +14,6 @@ const customStyle = StyleSheet.create({
 
         fontSize: 28,
         fontFamily: Platform.OS === "android" ? "monospace" : "Avenir",
-
-       // alignSelf: "center",
         marginTop: 6
     }
 })

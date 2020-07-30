@@ -5,6 +5,7 @@ import Colors from "../Colors/Colors";
 
 export default function ListCounter({ title, subTitle, image }) {
   return (
+    
     <View style={styles.container}>
       <Image style={styles.image} source={image} />
       <View style={styleForText.container}>
@@ -18,7 +19,8 @@ export default function ListCounter({ title, subTitle, image }) {
 const styleForText = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'baseline'
+    alignItems: "baseline",
+    backgroundColor: Colors.Black,
   },
   counterText: {
     marginRight: 30,
@@ -26,6 +28,7 @@ const styleForText = StyleSheet.create({
     fontSize: 20,
     textDecorationLine: "underline",
     color: Colors.WhiteColor,
+    backgroundColor: Colors.Black,
   },
   title: {
     lineHeight: 50,
@@ -34,7 +37,6 @@ const styleForText = StyleSheet.create({
     fontWeight: "100",
   },
   subTitle: {
-      
     color: Colors.WhiteColor,
     fontSize: 15,
     fontWeight: "100",
@@ -45,7 +47,11 @@ const styleForText = StyleSheet.create({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    resizeMode: "contain",
+    height: Platform.OS === "android" ? 300 : 380,
+    width: 500,
+    position: 'absolute',
+    
+    backgroundColor: Colors.Black
   },
   image: {
     width: 70,
@@ -53,5 +59,5 @@ const styles = StyleSheet.create({
     borderRadius: 35,
     marginRight: 10,
     marginTop: 30,
-  }
+  },
 });

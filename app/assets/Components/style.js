@@ -1,13 +1,11 @@
-import { StyleSheet} from 'react-native';
+import { StyleSheet } from "react-native";
 
 export const customStyle = StyleSheet.create({
-    
-    TextForApp: {
+  TextForApp: {
+    fontSize: 28,
+    fontFamily: Platform.OS === "android" ? "monospace" : "Avenir",
 
-            fontSize: 28,
-            fontFamily: Platform.OS === "android" ? "monospace" : "Avenir",
-        
-            alignSelf: "center",
-         marginTop: 6
-    }
-})
+    alignSelf: "center",
+    marginTop: 6,
+  },
+});

@@ -6,66 +6,81 @@ import {
   Image,
   SafeAreaView,
   ImageBackground,
+  Button,
 } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons/";
+
 import AppText from '../Components/AppText'
 import ListCounters from '../Components/ListCounters'
 import Colors from '../Colors/Colors'
+
+
 export default function ListingDetailsScreen() {
     return (
-      <ImageBackground style={styles.Background}>
-        <SafeAreaView>
-          <Image
-            style={styles.image}
-            source={require("../DataDragon/ChampImg/loading/Aatrox_0.jpg")}
+      
+      <View>
+        <Image
+          style={styles.image}
+          source={require("../DataDragon/ChampImg/loading/Aatrox_0.jpg")}
+        />
+        <View style={styles.detailsContainer}></View>
+        <AppText style={styles.title}> Aatrox</AppText>
+        <AppText style={styles.subTitle}>-The Darkin Blade</AppText>
+        <View style={styles.userContainer}>
+          <ListCounters
+            image={require("../DataDragon/ChampImg/tiles/Teemo_0.jpg")}
+            title="Teemo"
+            subTitle="The Swift Scout"
           />
-          <View style={styles.detailsContainer}></View>
-          <AppText style={styles.title}> Aatrox</AppText>
-          <AppText style={styles.subTitle}>-The Darkin Blade</AppText>
-          <View style={styles.userContainer}>
-            <ListCounters
-              image={require("../DataDragon/ChampImg/tiles/Teemo_0.jpg")}
-              title="Teemo"
-              subTitle="The Swift Scout"
-            />
-          </View>
-        </SafeAreaView>
-      </ImageBackground>
+        </View>
+        <MaterialCommunityIcons
+          name="arrow-left-thick"
+          style={IconStyles.arrowIcon}
+          size= {40}
+        />
+      </View>
     );
 }
 
-const styles = StyleSheet.create({
-detailsContainer:{
-padding: 5
+const IconStyles = StyleSheet.create({
+arrowIcon: {
 
-},
-    image: {
-            width: '100%',
-            height: 500,
-            alignSelf: 'center',
-            marginTop: 30
-    
-},
-Background: {
-
-backgroundColor: Colors.Black,
-width: '100%',
-height: '100%'
-
-},
-title: {
-
-  fontSize: 30,
-    fontWeight: 'bold',
+    position: "absolute",
+    top:  Platform.OS === "android" ? 40 : 50,
+    left: 10,
     color: Colors.WhiteColor
-        
-    },
- subTitle:{
-     marginLeft: 30,
-fontSize: 20,
-        color: Colors.WhiteColor
-    },
-    userContainer: {
-marginVertical: 10
-
-    }
+  }
 })
+
+const styles = StyleSheet.create({
+  detailsContainer: {
+    margin: -50,
+    color: Colors.Black,
+  },
+  //Adjustment for the champ image
+  image: {
+    width: "100%",
+    height: Platform.OS === "android" ? 500 : 600,
+    alignSelf: "center",
+    marginTop: Platform.OS === "android" ? 30 : 0,
+  },
+
+  backIcon: {
+    top: 40,
+    left: 30,
+    color: Colors.WhiteColor,
+  },
+  title: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: Colors.WhiteColor,
+  },
+  subTitle: {
+    marginLeft: 30,
+    fontSize: 20,
+    color: Colors.WhiteColor,
+  },
+  userContainer: {
+    marginVertical: 10,
+  },
+});
