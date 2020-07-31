@@ -1,9 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View, FlatList, SafeAreaView} from "react-native";
-import ListCounter from "../Components/ListCounters";
+import { StyleSheet, Text, View, FlatList} from "react-native";
 import Messages from "../Components/Messages";
-import Constants from 'expo-constants';
-
+import Screen from '../Components/Screen';
+import Seperator from '../Components/Separator'
+import AppText from "../Components/AppText";
+import SavedChampsDeleteAction from "../Components/SavedChampsDeleteAction";
+import Colors from "../Colors/Colors";
+ 
 const messages = [
   {
     id: 1,
@@ -15,14 +18,14 @@ const messages = [
     id: 2,
     title: "T2",
     description: "D2",
-    image: require("../DataDragon/ChampImg/tiles/Ahri_0.jpg"),
+    image: require("../DataDragon/ChampImg/tiles/Alistar_0.jpg"),
   },
 ];
 
 export default function MessagesScreen() {
   return (
-
-    <SafeAreaView style= {styles.screen}>
+    <Screen>
+      <AppText> Saved Champs</AppText>
       <FlatList
         data={messages}
         keyExtractor={(message) => message.id.toString()}
@@ -31,22 +34,16 @@ export default function MessagesScreen() {
             title={item.title}
             subTitle={item.description}
             image={item.image}
+            onPress={() => console.log("Message selected", item)}
+            renderRightActions={SavedChampsDeleteAction}
           />
         )}
+        ItemSeparatorComponent={Seperator}
       />
-    </SafeAreaView>
+    </Screen>
   );
-
-
 }
 
 const styles = StyleSheet.create({
-
-screen: {
-paddingTop: Constants.statusBarHeight
-
-}
-
-
 
 });

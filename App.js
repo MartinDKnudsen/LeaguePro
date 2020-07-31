@@ -9,6 +9,6 @@ import MessagesScreen from './app/assets/screens/MessagesScreen';
 
 
 export default function App() {
-  return  <MessagesScreen/>
+  return  (<MessagesScreen/>)
 
 }

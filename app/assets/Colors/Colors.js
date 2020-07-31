@@ -5,4 +5,5 @@ export default {
   WhiteColor: "#fff",
   GreyBackGround: "#A9A9A9",
   Black: "#000000",
+  lightGrey: "#f8f4f4",
 };

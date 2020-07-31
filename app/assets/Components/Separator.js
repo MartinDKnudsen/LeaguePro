@@ -1,0 +1,15 @@
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import Colors from '../Colors/Colors';
+
+export default function Separator() {
+    return  <View style={styles.sperator}/>
+}
+const styles = StyleSheet.create({
+
+sperator: {
+width: '100%',
+height: 4,
+backgroundColor: Colors.Black
+}
+})
