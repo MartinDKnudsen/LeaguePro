@@ -1,7 +1,7 @@
 import React from 'react'
 import {Text, fontFamily, ImageBackground, StyleSheet, View, Button, Image, Dimensions, Platform } from 'react-native'
-import colors from "../Colors/Colors";
-import FlatButton from '../Components/Buttons';
+import colors from "../config/Colors/Colors";
+import FlatButton from '../Components/FlatButton';
 import AllChamps from '../DataDragon/ChampionData/champion.json'
 import MainPageScreen from './MainChampPage'
 

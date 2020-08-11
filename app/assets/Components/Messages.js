@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity, TouchableHighlight } from "react-native";
 import AppText from "./AppText";
-import Colors from "../Colors/Colors";
+import Colors from "../config/Colors/Colors";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 import appText from "./AppText";
 
@@ -10,7 +10,8 @@ export default function Messages({ title, subTitle, image, onPress, renderRightA
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={Colors.lightGrey} onPress={onPress}>
         <View style={styles.container}>
-          <Image style={styles.image} source={image} />
+
+        { image && <Image style={styles.image} source={image} /> }
           <AppText style={styles.title}>
             {title}
             <AppText style={styles.subTitle}>

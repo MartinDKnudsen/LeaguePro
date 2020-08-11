@@ -12,33 +12,34 @@ import { MaterialCommunityIcons } from "@expo/vector-icons/";
 
 import AppText from '../Components/AppText'
 import ListCounters from '../Components/ListCounters'
-import Colors from '../Colors/Colors'
+import Colors from '../config/Colors/Colors'
+import Screen from "../Components/Screen";
 
-
-export default function ListingDetailsScreen() {
+export default function ListingDetailsScreen({hero, heroTitle, heroImage}) {
     return (
+      <Screen>
       
-      <View>
-        <Image
-          style={styles.image}
-          source={require("../DataDragon/ChampImg/loading/Aatrox_0.jpg")}
-        />
-        <View style={styles.detailsContainer}></View>
-        <AppText style={styles.title}> Aatrox</AppText>
-        <AppText style={styles.subTitle}>-The Darkin Blade</AppText>
-        <View style={styles.userContainer}>
-          <ListCounters
-            image={require("../DataDragon/ChampImg/tiles/Teemo_0.jpg")}
-            title="Teemo"
-            subTitle="The Swift Scout"
+          <Image
+            style={styles.image}
+            source={require("../DataDragon/ChampImg/loading/Aatrox_0.jpg")}
           />
-        </View>
-        <MaterialCommunityIcons
-          name="arrow-left-thick"
-          style={IconStyles.arrowIcon}
-          size= {40}
-        />
-      </View>
+          <View style={styles.detailsContainer}></View>
+          <AppText style={styles.title}> Aatrox</AppText>
+          <AppText style={styles.subTitle}>-The Darkin Blade</AppText>
+          <View style={styles.userContainer}>
+            <ListCounters
+              image={require("../DataDragon/ChampImg/tiles/Teemo_0.jpg")}
+              title="Teemo"
+              subTitle="The Swift Scout"
+            />
+          </View>
+          <MaterialCommunityIcons
+            name="arrow-left-thick"
+            style={IconStyles.arrowIcon}
+            size={40}
+          />
+        
+      </Screen>
     );
 }
 
@@ -62,7 +63,8 @@ const styles = StyleSheet.create({
     width: "100%",
     height: Platform.OS === "android" ? 500 : 600,
     alignSelf: "center",
-    marginTop: Platform.OS === "android" ? 30 : 0,
+    marginTop: Platform.OS === "android" ? -20 : -45,
+    justifyContent: "center"
   },
 
   backIcon: {

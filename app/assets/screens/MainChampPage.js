@@ -1,11 +1,9 @@
 import React from 'react'
 import { Text, fontFamily, ImageBackground, StyleSheet, View, Button, Image, Dimensions, Platform } from 'react-native'
-import colors from "../Colors/Colors";
+import colors from "../config/Colors/Colors";
 import SpecChamp from '../DataDragon/ChampionData/champion/Anivia.json';
 import AllChamps from '../DataDragon/ChampionData/champion.json'
 
-
-const AniviaName = SpecChamp.data.Anivia.id;
 
 
 function FrontPageScreen() {

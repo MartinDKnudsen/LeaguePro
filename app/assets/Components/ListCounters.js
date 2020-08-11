@@ -1,16 +1,24 @@
 import React from "react";
-import { StyleSheet, Text, View, Image,  } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import AppText from "./AppText";
-import Colors from "../Colors/Colors";
+import Colors from "../config/Colors/Colors";
 
-export default function ListCounter({ title, subTitle, image }) {
+export default function ListCounter({
+  title,
+  subTitle,
+  image,
+}) {
   return (
-    
     <View style={styles.container}>
-      <Image style={styles.image} source={image} />
+      <Image style={styles.image} source={image}/>
       <View style={styleForText.container}>
-      <AppText style={styleForText.counterText}>Counters</AppText>
-        <AppText style={styleForText.title}>{title}<AppText style={styleForText.subTitle}> -{subTitle}</AppText> </AppText>
+        <AppText style={styleForText.counterText}>Counters</AppText>
+        <AppText style={styleForText.title}>
+          {title}
+          {subTitle && (
+            <AppText style={styleForText.subTitle}> - {subTitle}</AppText>
+          )}{" "}
+        </AppText>
       </View>
     </View>
   );
@@ -43,19 +51,18 @@ const styleForText = StyleSheet.create({
   },
 });
 
-
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     height: Platform.OS === "android" ? 300 : 380,
     width: 500,
-    position: 'absolute',
-    
-    backgroundColor: Colors.Black
+    position: "absolute",
+    backgroundColor: Colors.Black,
   },
+ 
   image: {
     width: 70,
-    height: 70,
+    height: 80,
     borderRadius: 35,
     marginRight: 10,
     marginTop: 30,

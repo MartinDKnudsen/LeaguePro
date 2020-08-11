@@ -12,8 +12,8 @@ const customStyle = StyleSheet.create({
 
     TextForApp: {
 
-        fontSize: 28,
-        fontFamily: Platform.OS === "android" ? "monospace" : "Avenir",
-        marginTop: 6
+        fontSize: 18,
+        fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
+        
     }
 })
