@@ -1,43 +1,65 @@
-import React, {useState} from "react";
-import { StyleSheet, Text, View, Image, } from "react-native";
+import React from "react";
+import { StyleSheet, Text, View, Image } from "react-native";
 import Screen from "../Components/Screen";
 import AppTextInput from "../Components/AppTextInput";
 import AppButton from "../Components/AppButton";
+import * as Yup from "yup";
+import { Formik } from "formik";
+import AppText from "../Components/AppText";
+import ErrorMessage from "../Components/ErrorMessage";
+
+//Validate with Yup - import * as Yup from "yup";
+const validationSchema = Yup.object().shape({
+  email: Yup.string().required().email().label("Email"),
+  password: Yup.string().required().min(4).label("Password"),
+});
 
 export default function LoginScreen() {
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-
   return (
     <Screen style={styles.container}>
       <Image style={styles.logo} source={require("../logo-red.png")} />
-      <AppTextInput
-        autoCapitalize="none"
-        autoCorrect={false}
-        icon="email"
-        keyboardType="email-address"
-        onChangeText={text => setEmail(text)}
-        placeholder="Email"
-        textContentType="emailAddress"
-      />
-      <AppTextInput 
-      autoCapitalize="none" 
-      autoCorrect={false}
-      icon="lock"
-      onChangeText={text => setPassword(text)}
-      placeholder="Password"
-      secureTextEntry
-      textContentType="password"/>
-<AppButton title= "Login" onPress= {() => console.log(email, password)}/>
+
+      <Formik
+        initialValues={{ email: "", password: "" }}
+        onSubmit={(values) => console.log(values)}
+        validationSchema={validationSchema}
+      >
+        {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
+          <>
+            <AppTextInput
+              autoCapitalize="none"
+              autoCorrect={false}
+              icon="email"
+              keyboardType="email-address"
+              onBlur={() => setFieldTouched("email")}
+              onChangeText={handleChange("email")}
+              placeholder="Email"
+              textContentType="emailAddress"
+            />
+            <ErrorMessage error={errors.email} visible={touched.email} />
+            <AppTextInput
+              autoCapitalize="none"
+              autoCorrect={false}
+              icon="lock"
+              onBlur={() => setFieldTouched("password")}
+              onChangeText={handleChange("password")}
+              placeholder="Password"
+              secureTextEntry
+              textContentType="password"
+            />
+            <ErrorMessage error={errors.password} visible={touched.password} />
+            <AppButton title="Login" onPress={handleSubmit} />
+          </>
+        )}
+      </Formik>
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-    container: 
-    {
-        padding: 10
-    },
+  container: {
+    padding: 10,
+  },
   logo: {
     width: 80,
     height: 80,
