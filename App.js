@@ -15,11 +15,8 @@ import AppPicker from "./app/assets/Components/AppPicker";
 import AppText from "./app/assets/Components/AppText";
 import LoginScreen from "./app/assets/screens/LoginScreen";
 import AppButton from "./app/assets/Components/AppButton";
-
+import RegisterScreen from './app/assets/screens/RegisterScreen'
 
 export default function App() {
-  return (
-   <LoginScreen/>
-  
-  );
+  return <RegisterScreen/>;
 }

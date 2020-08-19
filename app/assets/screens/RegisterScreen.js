@@ -1,30 +1,33 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
-import Screen from "../Components/Screen";
-
+import { StyleSheet, Image } from "react-native";
 import * as Yup from "yup";
+
+import Screen from "../Components/Screen"
+
 import AppFormField from "../Components/forms/AppFormField";
 import SubmitButton from "../Components/forms/SubmitButton";
 import AppForm from "../Components/forms/AppForm";
 
-//Validate with Yup - import * as Yup from "yup";
 const validationSchema = Yup.object().shape({
+  name: Yup.string().required().label("Name"),
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password"),
 });
 
-export default function LoginScreen() {
+export default function RegisterScreen() {
   return (
     <Screen style={styles.container}>
-      <Image
-        style={styles.logo}
-        source={require("../Images/clipart2835634.png")}
-      />
       <AppForm
-        initialValues={{ email: "", password: "" }}
+        initialValues={{ name: "", email: "", password: "" }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
+        <AppFormField
+          autoCorrect={false}
+          icon="account"
+          name="name"
+          placeholder="Name"
+        />
         <AppFormField
           autoCapitalize="none"
           autoCorrect={false}
@@ -43,8 +46,9 @@ export default function LoginScreen() {
           secureTextEntry
           textContentType="password"
         />
-        <SubmitButton title="Login" />
+        <SubmitButton title="Register" />
       </AppForm>
+      <Image style={styles.image} source= {require('../Images/TristanaMeme.png')}/>
     </Screen>
   );
 }
@@ -52,12 +56,17 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+    flex: 1
   },
-  logo: {
-    width: 250,
-    height: 385,
-    alignSelf: "center",
-    marginTop: 50,
-    marginLeft: 220
-  },
+  image: {
+height: 450,
+width: 370,
+marginTop: 5,
+alignSelf: "center"
+
+
+
+  }
 });
+
+
