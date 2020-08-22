@@ -20,3 +20,4 @@ import RegisterScreen from './app/assets/screens/RegisterScreen'
 export default function App() {
   return <RegisterScreen/>;
 }
+
