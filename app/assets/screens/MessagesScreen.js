@@ -53,6 +53,12 @@ export default function MessagesScreen() {
         onRefresh={() => {
           setMessages([
             {
+              id: 1,
+              title: "T1",
+              description: "D1",
+              image: require("../DataDragon/ChampImg/tiles/Ahri_0.jpg"),
+            },
+            {
               id: 2,
               title: "T2",
               description: "D2",
@@ -65,4 +71,8 @@ export default function MessagesScreen() {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+
+
+  
+});
