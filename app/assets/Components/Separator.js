@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
 
 sperator: {
 width: '100%',
-height: 4,
+height: 1,
 backgroundColor: Colors.Black
 }
 })

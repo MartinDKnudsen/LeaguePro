@@ -1,9 +1,9 @@
 import React from 'react'
 import { StyleSheet, Text, View, ImagePropTypes } from 'react-native'
 
-export default function appText({children, style}) {
+export default function appText({children, style, ...otherProps}) {
     return (
-       <Text style={[customStyle.TextForApp, style]}>{children}</Text>
+       <Text style={[customStyle.TextForApp, style]}{...otherProps}>{children}</Text>
         
     )
 }

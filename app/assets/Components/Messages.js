@@ -11,9 +11,9 @@ export default function Messages({ title, subTitle, image, onPress, renderRightA
       <TouchableHighlight underlayColor={Colors.lightGrey} onPress={onPress}>
         <View style={styles.container}>
           {image && <Image style={styles.image} source={image} />}
-          <AppText style={styles.title}>
+          <AppText style={styles.title} numberOfLines={2}>
             {title}
-            <AppText style={styles.subTitle}>
+            <AppText style={styles.subTitle} numberOfLines={2}>
               {" "}
               {"\n"}
               {subTitle}
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     color: Colors.GreyBackGround,
-    fontSize: 25,
+    fontSize: 15,
     fontWeight: "100",
     lineHeight: Platform.OS === "android" ? 25 : 20,
   },
