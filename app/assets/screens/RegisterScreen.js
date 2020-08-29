@@ -4,9 +4,9 @@ import * as Yup from "yup";
 
 import Screen from "../Components/Screen"
 
-import AppFormField from "../Components/forms/AppFormField";
+import AppFormField from "../Components/forms/FormField";
 import SubmitButton from "../Components/forms/SubmitButton";
-import AppForm from "../Components/forms/AppForm";
+import Form from "../Components/forms/Form";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Name"),

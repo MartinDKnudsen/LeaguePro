@@ -10,8 +10,8 @@ import {
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons/";
 
-import AppText from '../Components/AppText'
-import ListCounters from '../Components/ListCounters'
+import AppText from '../Components/Text'
+import ListCounters from '../Components/lists/ListCounters'
 import Colors from '../config/Colors/Colors'
 import Screen from "../Components/Screen";
 

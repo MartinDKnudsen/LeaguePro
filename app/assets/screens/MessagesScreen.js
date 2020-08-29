@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import Messages from "../Components/Messages";
 import Screen from "../Components/Screen";
-import Seperator from "../Components/Separator";
-import AppText from "../Components/AppText";
+import Seperator from "../Components/forms/Separator";
+import AppText from "../Components/Text";
 import SavedChampsDeleteAction from "../Components/SavedChampsDeleteAction";
 import Colors from "../config/Colors/Colors";
 

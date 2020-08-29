@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
-import AppText from "../Components/AppText";
-import Colors from "../config/Colors/Colors";
+import AppText from "../Text";
+import Colors from "../../config/Colors/Colors";
 
 export default function ListingTemplate({
   title,

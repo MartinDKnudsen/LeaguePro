@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 
-import AppTextInput from "../AppTextInput"
+import AppTextInput from "../TextInput"
 import { useFormikContext } from 'formik'
 import ErrorMessage from './ErrorMessage'
 

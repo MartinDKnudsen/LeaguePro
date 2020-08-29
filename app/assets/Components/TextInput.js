@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TextInput } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Colors from "../config/Colors/Colors";
 import defaultStyles from '../config/styles';
-import AppText from "./AppText";
+import AppText from "./Text";
 
 export default function AppTextInput({ icon, ...otherProps }) {
   return (
