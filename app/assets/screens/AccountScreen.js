@@ -24,6 +24,7 @@ const menuItems = [
   },
 ];
 
+
 export default function AccountScreen() {
   return (
     <Screen style={styles.screen}>

@@ -14,19 +14,20 @@ export default function AppButton({ title, onPress }) {
 const styles = StyleSheet.create({
 button: 
 {
-backgroundColor: Colors.orange,
-borderRadius: 25,
+backgroundColor: Colors.WhiteColor,
+borderRadius: 50,
 justifyContent: "center",
 alignItems: "center",
 padding: 10,
-width: "100%"
+width: 200,
+alignSelf: 'center',
+marginTop: 20
 
 },
 text: 
 {
-color: Colors.WhiteColor,
+color: Colors.Black,
 fontSize: 18,
-textTransform: "uppercase",
 fontWeight: "bold"
 
 }

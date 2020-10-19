@@ -7,46 +7,38 @@ import Icon from "./app/assets/Components/icon";
 import Messages from "./app/assets/Components/Messages";
 import AccountScreen from "./app/assets/screens/AccountScreen";
 import ListingChampsScreen from "./app/assets/screens/ListingChampsScreen";
-import { TextInput, Text, Switch, Image } from "react-native";
+import { TextInput, Text, Switch, Image} from "react-native";
 import AppTextInput from "./app/assets/Components/TextInput";
 import AppPicker from "./app/assets/Components/Picker";
 import AppText from "./app/assets/Components/Text";
 import LoginScreen from "./app/assets/screens/LoginScreen";
 import AppButton from "./app/assets/Components/Button";
 import RegisterScreen from './app/assets/screens/RegisterScreen'
-import Button from './app/assets/Components/Button'
 
 import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
-
+import ImageInput from './app/assets/Components/ImageInput'
+import Button from './app/assets/Components/Button'
+import ImageInputList from "./app/assets/Components/lists/ImageInputList";
 
 export default function App() {
-const [imageUri, setImageUri] = useState();
+const [imageUris, setImageUris] = useState([]);
 
- const requestPermission = async () => {
-  const { granted } = await ImagePicker.requestCameraRollPermissionsAsync();
-if (!granted) alert("You need to enable permission to access the library.");
-
+const handleAdd = (uri) => {
+setImageUris([...imageUris, uri]);
 }
+const handleRemove = (uri) => {
+setImageUris(imageUris.filter(imageUris => imageUris != uri))
 
- useEffect(() => {
-requestPermission();
- }, [])
- 
-const selectImage = async () => {
-  try {
-    const result = await ImagePicker.launchImageLibraryAsync();
-   if (!result.cancelled)
-   setImageUri(result.uri);
-  } catch (error) {
-    console.log("Error reading a image", error)
-  }
 }
 
   return (
     <Screen>
-      <Button title="Select image" onPress={selectImage}/>
-      <Image source={{uri: imageUri }} style={{width: 400, height: 800}}/>
+    <ImageInputList
+      imageURis={imageUris}
+      onAddImage={handleAdd}
+      onRemoveImage={handleRemove}
+    />
     </Screen>
   );
 

@@ -12,7 +12,6 @@ import {
 import AppText from "./Text";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Colors from "../config/Colors/Colors";
-import defaultStyles from "../config/styles";
 import Screen from "./Screen";
 import PickerItem from "./PickerItem";
 
@@ -37,7 +36,11 @@ export default function AppPicker({
               style={styles.icon}
             />
           )}
-          {selectedItem ? <AppText style={styles.text}></AppText> : <AppText style={styles.placeholder}>{placeholder}</AppText>}
+          {selectedItem ? (
+            <AppText style={styles.text}></AppText>
+          ) : (
+            <AppText style={styles.placeholder}>{placeholder}</AppText>
+          )}
 
           <MaterialCommunityIcons
             name="chevron-down"
@@ -79,10 +82,9 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   icon: { alignSelf: "center", marginRight: 10 },
-placeholder: {
-color: Colors.medium
-
-},
+  placeholder: {
+    color: Colors.medium,
+  },
   text: {
     flex: 1,
   },
